@@ -14,7 +14,7 @@ class UpdatesForOutletsTable extends Migration
     public function up()
     {
         Schema::table('outlets', function(Blueprint $table){
-            $table->text('running_text');
+            $table->text('running_text')->nullable();
         });
     }
 

@@ -7,6 +7,32 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+## Cara Installasi
+
+Berikut adalah cara installasi untuk menjalankan sistem antrian ini, bisa di clone ataupun di download langsung.
+Setelah berhasil maka masuk ke terminal, dan masuk ke direktory folder
+
+- Ketik "composer install", tunggu sampe selesai
+- Sambil menunggu selesai, bisa mengubah di direktory folder, .env.lokal di rename menjadi .env
+- Edit .env pada bagian APP_URL disesuaikan dengan URL yang nantinya akan di jalankan untuk aplikasi
+- Edit .env pada bagian database :
+DB_HOST (host database)
+DB_PORT (port database)
+DB_DATABASE (nama database)
+DB_USERNAME (username database. default: root)
+DB_PASSWORD (password database. kosongkan apabila tidak di password)
+- Jika sudah selesai, kembali ke terminal
+- Ketik "php artisan key:generate", tunggu sampe selesai
+- Ketik "php artisan migrate --seed", tunggu sampe selesai.
+
+Setelah selesai, coba buka URL untuk membuka aplikasi tersebut.
+Jika berhasil maka akan diarahkan ke tampilan login.
+untuk awal user: admin123 dan password: admin123
+
+Done
+
+Jika diarahkan untuk memasukkan aktivation kode, bisa menghubungi: cs.retech@gmail.com dengan membayar license.
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
