@@ -63,9 +63,9 @@
                   <td>{{ $loket->purpose->kode }}</td>
                   <td>{{ $loket->purpose->keterangan }}</td>
                   <td>
-                    <a href="/setting/loket/{{ $loket->id }}" class="btn btn-sm btn-success"><span class="fas fa-user"></span></a>
-                    <a href="/setting/loket/{{ $loket->id }}/edit" class="btn btn-sm btn-warning"><span class="fas fa-edit"></span></a>
-                    <form action="/setting/loket/{{ $loket->id }}" method="post" class="d-inline">
+                    <a href="{{ url('setting/loket') }}/{{ $loket->id }}" class="btn btn-sm btn-success"><span class="fas fa-user"></span></a>
+                    <a href="{{ url('setting/loket') }}/{{ $loket->id }}/edit" class="btn btn-sm btn-warning"><span class="fas fa-edit"></span></a>
+                    <form action="{{ url('setting/loket') }}/{{ $loket->id }}" method="post" class="d-inline">
                       @method('delete')
                       @csrf
                       <button class="btn btn-danger btn-sm border-0" onclick="return confirm('Are you sure?')"><span class="fas fa-trash"></span></button>

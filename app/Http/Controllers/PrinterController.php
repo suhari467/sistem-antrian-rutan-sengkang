@@ -10,7 +10,7 @@ class PrinterController extends Controller
     //
     public function index()
     {
-        $fetch = json_decode(Storage::get('printer.json'));
+        $fetch = json_decode(Storage::disk('public')->get('printer.json'));
         $printer = collect($fetch->data)->sortByDesc('status')->all();
 
         $data = [
@@ -41,9 +41,9 @@ class PrinterController extends Controller
             'appKey' => 'required|numeric'
         ]);
 
-        $file = file_get_contents('storage/printer.json');
+        // $file = file_get_contents('storage/printer.json');
 
-        $get = json_decode($file, true);
+        $get = json_decode(Storage::disk('public')->get('printer.json'), true);
         $get['data'] = array_values($get['data']);
 
         $no = 1;
@@ -59,7 +59,7 @@ class PrinterController extends Controller
         
         array_push($get['data'], $validate);
 
-        $store = file_put_contents('storage/printer.json', json_encode($get));
+        $store = Storage::disk('public')->put('printer.json', json_encode($get));
 
         if($store){
             return redirect('setting/printer')->with('success', 'Data berhasil di tambah');
@@ -72,8 +72,8 @@ class PrinterController extends Controller
     {
         $id = $request->printer;
 
-        $file = file_get_contents('storage/printer.json');
-        $process = json_decode($file, true);
+        // $file = file_get_contents('storage/printer.json');
+        $process = json_decode(Storage::disk('public')->get('printer.json'), true);
         $data = collect($process['data']);
 
         $printer = $data->where('id', $id)->first(); //cari data yang mau hapus
@@ -98,8 +98,8 @@ class PrinterController extends Controller
 
         // ddd($validate);
 
-        $file = file_get_contents('storage/printer.json');
-        $get = json_decode($file, true);
+        // $file = file_get_contents('storage/printer.json');
+        $get = json_decode(Storage::disk('public')->get('printer.json'), true);
 
         $data = collect($get['data']);
         $data_old = $data->where('id', $validate['id'])->first(); //cari data yang mau diubah statusnya
@@ -127,7 +127,7 @@ class PrinterController extends Controller
         $array = ['data' => $data];
         // ddd($array);
 
-        $update = file_put_contents('storage/printer.json', json_encode($array));
+        $update = Storage::disk('public')->put('printer.json', json_encode($array));
 
         if($update){
             return redirect('setting/printer')->with('success', 'Data setting berhasil di ubah');
@@ -140,8 +140,8 @@ class PrinterController extends Controller
     {
         $id = $request->printer;
 
-        $file = file_get_contents('storage/printer.json');
-        $get = json_decode($file, true);
+        // $file = file_get_contents('storage/printer.json');
+        $get = json_decode(Storage::disk('public')->get('printer.json'), true);
 
         $data = collect($get['data']);
         $data_new = $data->where('id', $id)->first(); //cari data yang mau diubah statusnya
@@ -189,7 +189,7 @@ class PrinterController extends Controller
         $array = ['data' => $data];
         // ddd($array);
 
-        $status = file_put_contents('storage/printer.json', json_encode($array));
+        $status = Storage::disk('public')->put('printer.json', json_encode($array));
 
         if($status){
             return redirect('setting/printer')->with('success', 'Data status berhasil di ubah');
@@ -202,8 +202,8 @@ class PrinterController extends Controller
     {
         $id = $request->printer;
 
-        $file = file_get_contents('storage/printer.json');
-        $process = json_decode($file, true);
+        // $file = file_get_contents('storage/printer.json');
+        $process = json_decode(Storage::disk('public')->get('printer.json'), true);
         $data = collect($process['data']);
 
         $fetch = $data->where('id', $id)->first(); //cari data yang mau hapus
@@ -226,7 +226,7 @@ class PrinterController extends Controller
         // ddd($data);
         $array = ['data' => $data];
 
-        $destroy = file_put_contents('storage/printer.json', json_encode($array));
+        $destroy = Storage::disk('public')->put('printer.json', json_encode($array));
         if($destroy){
             return redirect('setting/printer')->with('success', 'Data berhasil di hapus');
         }else{

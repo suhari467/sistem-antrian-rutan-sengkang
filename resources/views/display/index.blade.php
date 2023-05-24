@@ -72,13 +72,13 @@
                     @endif
                   </td>
                   <td>
-                    <form action="/setting/display/{{ $display->id }}/status" method="post" class="d-inline">
+                    <form action="{{ url('setting/display') }}/{{ $display->id }}/status" method="post" class="d-inline">
                       @method('put')
                       @csrf
                       <button class="btn btn-success btn-sm border-0" onclick="return confirm('Are you sure?')"><span class="fas fa-check-square"></span></button>
                     </form>
-                    <a href="/setting/display/{{ $display->id }}/edit" class="btn btn-sm btn-warning"><span class="fas fa-edit"></span></a>
-                    <form action="/setting/display/{{ $display->id }}" method="post" class="d-inline">
+                    <a href="{{ url('setting/display') }}/{{ $display->id }}/edit" class="btn btn-sm btn-warning"><span class="fas fa-edit"></span></a>
+                    <form action="{{ url('setting/display') }}/{{ $display->id }}" method="post" class="d-inline">
                       @method('delete')
                       @csrf
                       <button class="btn btn-danger btn-sm border-0" onclick="return confirm('Are you sure?')"><span class="fas fa-trash"></span></button>

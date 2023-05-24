@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
 <!-- Small Box (Stat card) -->
-<div class="row mt-2">
+<div class="row justify-content-center mt-2">
   <div class="col-lg-12 mb-4">
   <h3 class="mt-4 text-center">Ambil Antrian Loket</h3>
   <hr>
@@ -110,7 +110,11 @@
             .text('Antrian belum dipanggil : '+data['count'])
             .text('')
             .text('Terimakasih atas kunjungannya')
-            .text('Semoga lekas sembuh')
+            .text('Semoga puas dengan pelayanan kami')
+            .text('')
+            .text('')
+            .text('')
+            .text('')
             .cut()
             .print()
         })

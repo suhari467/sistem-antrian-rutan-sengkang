@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 use App\Models\Queue;
 use App\Models\Outlet;
@@ -13,7 +14,7 @@ class QueueController extends Controller
 {
     public function index()
     {
-        $file = file_get_contents('storage/printer.json');
+        $file = Storage::disk('public')->get('printer.json');
         $file = json_decode($file);
         $file = collect($file->data);
 

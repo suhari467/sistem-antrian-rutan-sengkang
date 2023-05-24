@@ -61,9 +61,9 @@
                   <td>{{ $purpose->jenis }}</td>
                   <td>{{ $purpose->keterangan }}</td>
                   <td>
-                    <a href="/setting/purpose/{{ $purpose->id }}" class="btn btn-sm btn-success"><span class="fas fa-th"></span></a>
-                    <a href="/setting/purpose/{{ $purpose->id }}/edit" class="btn btn-sm btn-warning"><span class="fas fa-edit"></span></a>
-                    <form action="/setting/purpose/{{ $purpose->id }}" method="post" class="d-inline">
+                    <a href="{{ url('setting/purpose') }}/{{ $purpose->id }}" class="btn btn-sm btn-success"><span class="fas fa-th"></span></a>
+                    <a href="{{ url('setting/purpose') }}/{{ $purpose->id }}/edit" class="btn btn-sm btn-warning"><span class="fas fa-edit"></span></a>
+                    <form action="{{ url('setting/purpose') }}/{{ $purpose->id }}" method="post" class="d-inline">
                       @method('delete')
                       @csrf
                       <button class="btn btn-danger btn-sm border-0" onclick="return confirm('Are you sure?')"><span class="fas fa-trash"></span></button>

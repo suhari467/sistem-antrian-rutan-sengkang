@@ -61,9 +61,9 @@
                   <td>{{ $user->loket->nomor }}</td>
                   <td>{{ $user->role->name=='admin' ? 'Administrator' : 'Pengguna' }}</td>
                   <td>
-                    <a href="/user/{{ $user->username }}/password" class="btn btn-sm btn-success"><span class="fas fa-unlock-alt"></span></a>
-                    <a href="/user/{{ $user->username }}/edit" class="btn btn-sm btn-warning"><span class="fas fa-edit"></span></a>
-                    <form action="/user/{{ $user->username }}" method="post" class="d-inline">
+                    <a href="{{ url('user') }}/{{ $user->username }}/password" class="btn btn-sm btn-success"><span class="fas fa-unlock-alt"></span></a>
+                    <a href="{{ url('user') }}/{{ $user->username }}/edit" class="btn btn-sm btn-warning"><span class="fas fa-edit"></span></a>
+                    <form action="{{ url('user') }}/{{ $user->username }}" method="post" class="d-inline">
                       @method('delete')
                       @csrf
                       <button class="btn btn-danger btn-sm border-0" onclick="return confirm('Are you sure?')"><span class="fas fa-trash"></span></button>
